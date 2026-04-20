@@ -11,7 +11,7 @@ from .construct_email import render_email
 from .utils import send_email
 from openai import OpenAI
 from tqdm import tqdm
-
+import time
 
 def normalize_include_path_patterns(include_path: list[str] | ListConfig | None) -> list[str] | None:
     if include_path is None:
@@ -104,7 +104,9 @@ class Executor:
             logger.info("Generating TLDR and affiliations...")
             for p in tqdm(reranked_papers):
                 p.generate_tldr(self.openai_client, self.config.llm)
+                time.sleep(12)
                 p.generate_affiliations(self.openai_client, self.config.llm)
+                time.sleep(12)
         elif not self.config.executor.send_empty:
             logger.info("No new papers found. No email will be sent.")
             return
