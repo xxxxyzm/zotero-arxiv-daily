@@ -104,7 +104,7 @@ class Executor:
             logger.info("Generating TLDR and affiliations...")
             for p in tqdm(reranked_papers):
                 p.generate_tldr(self.openai_client, self.config.llm)
-                time.sleep(12)
+                time.sleep(16)
                 p.generate_affiliations(self.openai_client, self.config.llm)
                 time.sleep(12)
         elif not self.config.executor.send_empty:
