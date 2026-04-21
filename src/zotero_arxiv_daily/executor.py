@@ -106,7 +106,7 @@ class Executor:
                 p.generate_tldr(self.openai_client, self.config.llm)
                 time.sleep(16)
                 p.generate_affiliations(self.openai_client, self.config.llm)
-                time.sleep(12)
+                time.sleep(14)
         elif not self.config.executor.send_empty:
             logger.info("No new papers found. No email will be sent.")
             return
